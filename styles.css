@@ -1,4 +1,9 @@
+/* * {
+  border: solid black 2px;
+} */
+
 body {
+  font-family: "Andale Mono";
   margin: 0px;
   border: solid black 2px;
   height: 900px;
@@ -13,31 +18,34 @@ main {
   align-items: center;
 }
 
-.palette-button-container {
-  display: flex;
+h1 {
+  margin: 0px;
+  font-size: 400%;
 }
+
 
 .color-box-container {
   /* border: solid black 2px; */
-  width: inherit;
   height: inherit;
+  width: inherit;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .color-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   /* border: solid black 2px; */
-  width: 250px;
   height: 250px;
+  width: 250px;
 }
 
 .color {
   border: solid black 2px;
-  width: 80%;
   height: 80%;
+  width: 80%;
   background-color: red;
 }
 
@@ -50,16 +58,30 @@ main {
 }
 
 .hex-and-lock > img {
-  width: auto;
   height: 30px;
+  width: auto;
+}
+
+.palette-button-container {
+  /* border: solid black 2px; */
+  width: 82%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.palette-buttons {
+  height: 70px;
+  width: 200px;
+  font-family: "Andale Mono";
+  font-size: 150%;
+  background-color: white;
+  border-radius: 15px;
 }
 
 aside {
   display: flex;
-  float: right;
-  top: 0;
-  right: 0;
+  justify-content: center;
   border: solid black 2px;
-  width: 20%;
   height: auto;
+  width: 20%;
 }
