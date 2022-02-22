@@ -29,17 +29,15 @@ function createHexCode() {
   return hexCode;
 };
 
-console.log(createHexCode());
-
 class Color {
   constructor() {
-    hexCode = createHexCode()
-    locked = false;
+    this.hexCode = createHexCode()
+    this.locked = false;
   }
 };
 
 class Palette {
   constructor() {
-
+    
   }
 };
