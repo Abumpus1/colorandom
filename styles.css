@@ -1,0 +1,87 @@
+/* * {
+  border: solid black 2px;
+} */
+
+body {
+  font-family: "Andale Mono";
+  margin: 0px;
+  border: solid black 2px;
+  height: 900px;
+  display: flex;
+}
+
+main {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+h1 {
+  margin: 0px;
+  font-size: 400%;
+}
+
+
+.color-box-container {
+  /* border: solid black 2px; */
+  height: inherit;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+}
+
+.color-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: solid black 2px; */
+  height: 250px;
+  width: 250px;
+}
+
+.color {
+  border: solid black 2px;
+  height: 80%;
+  width: 80%;
+  background-color: red;
+}
+
+.hex-and-lock {
+  width: 80%;
+  /* border: solid black 2px; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hex-and-lock > img {
+  height: 30px;
+  width: auto;
+}
+
+.palette-button-container {
+  /* border: solid black 2px; */
+  width: 82%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.palette-buttons {
+  height: 70px;
+  width: 200px;
+  font-family: "Andale Mono";
+  font-size: 150%;
+  background-color: white;
+  border-radius: 15px;
+}
+
+aside {
+  display: flex;
+  justify-content: center;
+  border: solid black 2px;
+  height: auto;
+  width: 20%;
+}
