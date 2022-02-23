@@ -1,3 +1,6 @@
+var colors = document.querySelectorAll(".color-box");
+var colorBoxColor = document.querySelectorAll(".color");
+
 var hexCharacters = [
   "A",
   "B",
@@ -16,6 +19,8 @@ var hexCharacters = [
   "8",
   "9"
 ]
+
+// window.onload = generateNewPalette();
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -56,3 +61,33 @@ class Palette {
     }
   }
 };
+
+var thing = new Palette;
+
+console.log(thing);
+
+generateNewPalette();
+
+function generateNewPalette() {
+  console.log('it worked!')
+  var newPalette = new Palette;
+  console.log(newPalette);
+  for (let i = 0; i < colors.length; i++) {
+
+   colors[i].innerHTML = "";
+   colors[i].innerHTML += `
+      <div class="color">
+      </div>
+      <div class="hex-and-lock">
+        <p>${newPalette.colors[i].hexCode}</p>
+        <img src="./src/unlock.png">
+      </div>`;
+    }
+    colorBoxColor.style.backgroundColor = "pink";
+}
+
+// Assigning random hexcode both to the color of the boxes,
+// and to the text displayed below the boxes on page load.
+
+// Create a function that instantiates a new palette.
+// Call that function on page load.
