@@ -1,3 +1,5 @@
+
+
 var colors = document.querySelectorAll(".color-box");
 var colorBoxColor = document.querySelectorAll(".color");
 var hexAndLock = document.querySelectorAll(".hex-and-lock");
@@ -27,34 +29,6 @@ function createHexCode() {
     hexCode += hexCharacters[getRandomIndex(hexCharacters)]
   }
   return hexCode;
-};
-
-class Color {
-  constructor() {
-    this.hexCode = createHexCode()
-    this.locked = false;
-  }
-};
-
-class Palette {
-  constructor() {
-    this.colors = [
-      new Color,
-      new Color,
-      new Color,
-      new Color,
-      new Color
-    ];
-    this.id = Date.now();
-  };
-
-  newColor() {
-    for (var i = 0; i < this.colors.length; i++) {
-      if (!this.colors[i].locked) {
-        this.colors[i].hexCode = createHexCode();
-      }
-    }
-  }
 };
 
 var newPalette1 = new Palette;
