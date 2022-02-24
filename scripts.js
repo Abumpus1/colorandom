@@ -41,16 +41,9 @@ function savePalette() {
   generateNewPalette();
 }
 
-function displayPalettes() {
-  newPalette1.giveColorsId();
-  savedPalettesContainer.innerHTML = ""
-  for (var i = 0; i < savedPalettes.length; i++) {
-    createColorBox();
-  }
-}
 
 function generateNewPalette() {
-  var newPalette1 = new Palette
+  newPalette1 = new Palette()
   console.log(newPalette1)
 }
 
@@ -73,14 +66,22 @@ function createHexCode() {
 //   }
 // }
 
-function createColorBox() {
+function displayPalettes() {
+  newPalette1.giveColorsId();
+  savedPalettesContainer.innerHTML = ""
+  for (var i = 0; i < savedPalettes.length; i++) {
+    createColorBox(savedPalettes[i]);
+  }
+}
+
+function createColorBox(palette) {
   var paletteBoxDiv = document.createElement("div");
   paletteBoxDiv.className = "palette-box";
   savedPalettesContainer.appendChild(paletteBoxDiv);
-  for (var i = 0; i < newPalette1.colors.length; i++) {
+  for (var i = 0; i < palette.colors.length; i++) {
     var miniPaletteDiv = document.createElement("div");
     miniPaletteDiv.className = "miniPalette"
-    miniPaletteDiv.style.backgroundColor = `${newPalette1.colors[i].hexCode}`
+    miniPaletteDiv.style.backgroundColor = `${palette.colors[i].hexCode}`
     paletteBoxDiv.appendChild(miniPaletteDiv)
   }
 }
