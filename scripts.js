@@ -1,5 +1,4 @@
-
-
+// variables
 var colors = document.querySelectorAll(".color-box");
 var colorBoxColor = document.querySelectorAll(".color");
 var hexAndLock = document.querySelectorAll(".hex-and-lock");
@@ -12,18 +11,6 @@ var savedPalettes = [];
 
 var newPalette1 = new Palette;
 displayNewColors();
-// newPalette1.giveColorsId();
-/*
-array to contain saved Palettes
-function to display array into saved palettes section
-have them sized for css
-
-when we save a palette, mayhaps call a method on the palette we are saving
-that gives an ID to each color
-
-access color's id with data attributes and give hexcode to div
-use something.dataset.id.style.setProperty("background-color", `${dataset.hexcode}`);
-*/
 
 // event listeners
 newPaletteButton.addEventListener("click", displayNewColors);
@@ -31,16 +18,14 @@ savePaletteButton.addEventListener("click", function() {
   savePalette()
   displayPalettes()
   displayNewColors();
-  // generateNewPalette();
-  // createColorBox();
 });
 
+// functions
 function savePalette() {
   savedPalettes.push(newPalette1);
   console.log(savedPalettes);
   generateNewPalette();
 }
-
 
 function generateNewPalette() {
   newPalette1 = new Palette()
@@ -58,13 +43,6 @@ function createHexCode() {
   }
   return hexCode;
 };
-
-
-// function displayNewPalette() {
-//   for (let i = 0; i < colors.length; i++) {
-//     savedPalettesContainer[i].style.setProperty("background-color", `${newPalette1.colors[i].hexCode}`);
-//   }
-// }
 
 function displayPalettes() {
   newPalette1.giveColorsId();
@@ -84,8 +62,11 @@ function createColorBox(palette) {
     miniPaletteDiv.style.backgroundColor = `${palette.colors[i].hexCode}`
     paletteBoxDiv.appendChild(miniPaletteDiv)
   }
+  var deleteButton = document.createElement("img");
+  deleteButton.className = "delete-button"
+  deleteButton.src = "./src/delete.png";
+  paletteBoxDiv.appendChild(deleteButton);
 }
-
 
 function displayNewColors() {
   newPalette1.newColor();
