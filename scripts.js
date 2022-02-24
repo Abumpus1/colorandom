@@ -1,21 +1,23 @@
-var hexCharacters = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "0",
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9"
-]
+
+
+var colors = document.querySelectorAll(".color-box");
+var colorBoxColor = document.querySelectorAll(".color");
+var hexAndLock = document.querySelectorAll(".hex-and-lock");
+var newPaletteButton = document.querySelector("#new-palette");
+var savePaletteButton = document.querySelector("#save-palette");
+
+var hexCharacters = ["A","B","C","D","E","F","0","1","2","3","4","5","6","7","8","9"];
+
+
+
+// window.addEventListener('load', generateNewPalette)
+// generateNewPalette();
+newPaletteButton.addEventListener('click', function() {
+
+  displayNewColors()
+
+  console.log(newPalette1);
+});
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -29,30 +31,16 @@ function createHexCode() {
   return hexCode;
 };
 
-class Color {
-  constructor() {
-    this.hexCode = createHexCode()
-    this.locked = false;
-  }
-};
+var newPalette1 = new Palette;
+displayNewColors();
 
-class Palette {
-  constructor() {
-    this.colors = [
-      new Color,
-      new Color,
-      new Color,
-      new Color,
-      new Color
-    ];
-    this.id = Date.now();
-  };
-
-  newColor() {
-    for (var i = 0; i < this.colors.length; i++) {
-      if (!this.colors[i].locked) {
-        this.colors[i].hexCode = createHexCode();
-      }
-    }
+function displayNewColors() {
+  newPalette1.newColor();
+  for (let i = 0; i < colors.length; i++) {
+    colorBoxColor[i].style.setProperty("background-color", `${newPalette1.colors[i].hexCode}`);
+    hexAndLock[i].innerHTML = "";
+    hexAndLock[i].innerHTML +=
+    `<p>${newPalette1.colors[i].hexCode}</p>
+    <img src="./src/unlock.png">`
   }
-};
+}
