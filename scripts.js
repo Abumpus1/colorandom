@@ -1,10 +1,21 @@
 var colors = document.querySelectorAll(".color-box");
 var colorBoxColor = document.querySelectorAll(".color");
 var hexAndLock = document.querySelectorAll(".hex-and-lock");
+var newPaletteButton = document.querySelector("#new-palette");
+var savePaletteButton = document.querySelector("#save-palette");
 
 var hexCharacters = ["A","B","C","D","E","F","0","1","2","3","4","5","6","7","8","9"];
 
-window.addEventListener('load', generateNewPalette)
+
+
+// window.addEventListener('load', generateNewPalette)
+// generateNewPalette();
+newPaletteButton.addEventListener('click', function() {
+
+  displayNewColors()
+
+  console.log(newPalette1);
+});
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -46,13 +57,16 @@ class Palette {
   }
 };
 
-function generateNewPalette(event) {
-  var newPalette = new Palette;
+var newPalette1 = new Palette;
+displayNewColors();
+
+function displayNewColors() {
+  newPalette1.newColor();
   for (let i = 0; i < colors.length; i++) {
-    colorBoxColor[i].style.setProperty("background-color", `${newPalette.colors[i].hexCode}`);
+    colorBoxColor[i].style.setProperty("background-color", `${newPalette1.colors[i].hexCode}`);
     hexAndLock[i].innerHTML = "";
     hexAndLock[i].innerHTML +=
-    `<p>${newPalette.colors[i].hexCode}</p>
+    `<p>${newPalette1.colors[i].hexCode}</p>
     <img src="./src/unlock.png">`
   }
 }
