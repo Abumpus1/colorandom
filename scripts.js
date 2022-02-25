@@ -9,8 +9,8 @@ var colorBoxContainer = document.querySelector(".color-box-container");
 
 var hexCharacters = ["A","B","C","D","E","F","0","1","2","3","4","5","6","7","8","9"];
 var savedPalettes = [];
-
 var newPalette = new Palette;
+
 displayNewColors();
 
 // event listeners
@@ -56,14 +56,12 @@ function displayPalettes() {
   savedPalettesContainer.innerHTML = "";
   for (let i = 0; i < savedPalettes.length; i++) {
     createColorBox(savedPalettes[i]);
-
   }
 }
 
 function createColorBox(palette) {
   var paletteBoxDiv = document.createElement("div");
   paletteBoxDiv.className = "palette-box";
-
   savedPalettesContainer.appendChild(paletteBoxDiv);
   for (let i = 0; i < palette.colors.length; i++) {
     var miniPaletteDiv = document.createElement("div");
@@ -85,7 +83,6 @@ function addDeleteButton(savedIndex, paletteBoxDiv) {
 function assignDeleteButtonId(deleteButton, savedIndex) {
     deleteButton.id = savedIndex.id;
 }
-
 
 function toggleLock(i) {
   if (!newPalette.colors[i].locked) {
