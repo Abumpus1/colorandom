@@ -7,7 +7,7 @@ class Palette {
       new Color,
       new Color
     ];
-    this.id = Date.now();
+    this.id = `${Date.now()}`;
   };
 
   newColor() {
