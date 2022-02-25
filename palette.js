@@ -21,6 +21,7 @@ class Palette {
   giveColorsId() {
     for(var i = 0; i < this.colors.length; i++) {
       this.colors[i].id = `${Date.now()}` + i;
+      this.colors[i].divId = `${i}`;
     }
   }
 };
