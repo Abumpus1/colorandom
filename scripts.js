@@ -105,3 +105,11 @@ function displayNewColors() {
     }
   }
 };
+
+/*
+
+on click of trashcan icon
+make a function that deletes a saved palette from the array
+display new array
+
+*/
