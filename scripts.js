@@ -23,31 +23,21 @@ savePaletteButton.addEventListener("click", function() {
 colorBoxContainer.addEventListener("click", function(event){
   lockColor(event)
 });
+savedPalettesContainer.addEventListener("click", function(event) {
+  deletePalette(event);
+})
 
-function lockColor(event) {
-  for (var i = 0; i < newPalette1.colors.length; i++) {
-    if (event.target.closest(".color-box").id === newPalette1.colors[i].divId) {
-      newPalette1.colors[i].locked = true
 
-      hexAndLock[i].innerHTML = "";
-      hexAndLock[i].innerHTML +=
-      `<p class="hex-code">${newPalette1.colors[i].hexCode}</p>
-      <img src="./src/padlock.png">`
-    }
-  }
-};
 
 
 // functions
 function savePalette() {
   savedPalettes.push(newPalette1);
-  console.log(savedPalettes);
   generateNewPalette();
 }
 
 function generateNewPalette() {
   newPalette1 = new Palette()
-  console.log(newPalette1)
 }
 
 function getRandomIndex(array) {
@@ -67,12 +57,14 @@ function displayPalettes() {
   savedPalettesContainer.innerHTML = ""
   for (var i = 0; i < savedPalettes.length; i++) {
     createColorBox(savedPalettes[i]);
+
   }
 }
 
 function createColorBox(palette) {
   var paletteBoxDiv = document.createElement("div");
   paletteBoxDiv.className = "palette-box";
+
   savedPalettesContainer.appendChild(paletteBoxDiv);
   for (var i = 0; i < palette.colors.length; i++) {
     var miniPaletteDiv = document.createElement("div");
@@ -80,10 +72,19 @@ function createColorBox(palette) {
     miniPaletteDiv.style.backgroundColor = `${palette.colors[i].hexCode}`
     paletteBoxDiv.appendChild(miniPaletteDiv)
   }
+  addDeleteButton(palette, paletteBoxDiv);
+}
+
+function addDeleteButton(savedIndex, paletteBoxDiv) {
   var deleteButton = document.createElement("img");
-  deleteButton.className = "delete-button"
+  deleteButton.className = "delete-button";
+  assignDeleteButtonId(deleteButton, savedIndex);
   deleteButton.src = "./src/delete.png";
   paletteBoxDiv.appendChild(deleteButton);
+}
+
+function assignDeleteButtonId(deleteButton, savedIndex) {
+    deleteButton.id = savedIndex.id;
 }
 
 
@@ -106,10 +107,23 @@ function displayNewColors() {
   }
 };
 
-/*
+function lockColor(event) {
+  for (var i = 0; i < newPalette1.colors.length; i++) {
+    if (event.target.closest(".color-box").id === newPalette1.colors[i].divId) {
+      newPalette1.colors[i].locked = true
+      hexAndLock[i].innerHTML = "";
+      hexAndLock[i].innerHTML +=
+      `<p class="hex-code">${newPalette1.colors[i].hexCode}</p>
+      <img src="./src/padlock.png">`
+    }
+  }
+};
 
-on click of trashcan icon
-make a function that deletes a saved palette from the array
-display new array
-
-*/
+function deletePalette(event) {
+  for (let i = 0; i < savedPalettes.length; i++) {
+    if (event.target.className === "delete-button" && event.target.id === savedPalettes[i].id) {
+      savedPalettes.splice(i, 1);
+    }
+  }
+  displayPalettes();
+}
