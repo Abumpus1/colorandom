@@ -10,52 +10,51 @@ var colorBoxContainer = document.querySelector(".color-box-container");
 var hexCharacters = ["A","B","C","D","E","F","0","1","2","3","4","5","6","7","8","9"];
 var savedPalettes = [];
 
-var newPalette1 = new Palette;
+var newPalette = new Palette;
 displayNewColors();
 
 // event listeners
 newPaletteButton.addEventListener("click", displayNewColors);
-savePaletteButton.addEventListener("click", function() {
-  savePalette()
-  displayPalettes()
-  displayNewColors();
-});
+savePaletteButton.addEventListener("click", savePalette);
 colorBoxContainer.addEventListener("click", function(event){
-  lockColor(event)
+  lockColor(event);
 });
 savedPalettesContainer.addEventListener("click", function(event) {
   deletePalette(event);
-})
-
-
-
+});
 
 // functions
 function savePalette() {
-  savedPalettes.push(newPalette1);
+  pushPalette();
+  displayPalettes();
+  displayNewColors();
+}
+
+function pushPalette() {
+  savedPalettes.push(newPalette);
   generateNewPalette();
 }
 
 function generateNewPalette() {
-  newPalette1 = new Palette()
+  newPalette = new Palette();
 }
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
-};
+}
 
 function createHexCode() {
   var hexCode = "#";
-  for (var i = 0; i < 6; i++) {
-    hexCode += hexCharacters[getRandomIndex(hexCharacters)]
+  for (let i = 0; i < 6; i++) {
+    hexCode += hexCharacters[getRandomIndex(hexCharacters)];
   }
   return hexCode;
-};
+}
 
 function displayPalettes() {
-  newPalette1.giveColorsId();
-  savedPalettesContainer.innerHTML = ""
-  for (var i = 0; i < savedPalettes.length; i++) {
+  newPalette.giveColorsId();
+  savedPalettesContainer.innerHTML = "";
+  for (let i = 0; i < savedPalettes.length; i++) {
     createColorBox(savedPalettes[i]);
 
   }
@@ -66,11 +65,11 @@ function createColorBox(palette) {
   paletteBoxDiv.className = "palette-box";
 
   savedPalettesContainer.appendChild(paletteBoxDiv);
-  for (var i = 0; i < palette.colors.length; i++) {
+  for (let i = 0; i < palette.colors.length; i++) {
     var miniPaletteDiv = document.createElement("div");
-    miniPaletteDiv.className = "miniPalette"
-    miniPaletteDiv.style.backgroundColor = `${palette.colors[i].hexCode}`
-    paletteBoxDiv.appendChild(miniPaletteDiv)
+    miniPaletteDiv.className = "miniPalette";
+    miniPaletteDiv.style.backgroundColor = `${palette.colors[i].hexCode}`;
+    paletteBoxDiv.appendChild(miniPaletteDiv);
   }
   addDeleteButton(palette, paletteBoxDiv);
 }
@@ -88,36 +87,36 @@ function assignDeleteButtonId(deleteButton, savedIndex) {
 }
 
 
+function toggleLock(i) {
+  if (!newPalette.colors[i].locked) {
+    hexAndLock[i].innerHTML += `<img src="./src/unlock.png">`;
+  } else {
+    hexAndLock[i].innerHTML += `<img src="./src/padlock.png">`;
+  }
+}
 
 function displayNewColors() {
-  newPalette1.newColor();
-  newPalette1.giveColorsId();
+  newPalette.newColor();
+  newPalette.giveColorsId();
   for (let i = 0; i < colors.length; i++) {
-    colorBoxColor[i].style.setProperty("background-color", `${newPalette1.colors[i].hexCode}`);
+    colorBoxColor[i].style.setProperty("background-color", `${newPalette.colors[i].hexCode}`);
     hexAndLock[i].innerHTML = "";
-    hexAndLock[i].innerHTML +=
-    `<p class="hex-code">${newPalette1.colors[i].hexCode}</p>`
-    if (!newPalette1.colors[i].locked) {
-      hexAndLock[i].innerHTML +=
-        `<img src="./src/unlock.png">`
-    } else {
-      hexAndLock[i].innerHTML +=
-        `<img src="./src/padlock.png">`
-    }
+    hexAndLock[i].innerHTML += `<p class="hex-code">${newPalette.colors[i].hexCode}</p>`;
+    toggleLock(i);
   }
-};
+}
 
 function lockColor(event) {
-  for (var i = 0; i < newPalette1.colors.length; i++) {
-    if (event.target.closest(".color-box").id === newPalette1.colors[i].divId) {
-      newPalette1.colors[i].locked = true
+  for (let i = 0; i < newPalette.colors.length; i++) {
+    if (event.target.closest(".color-box").id === newPalette.colors[i].divId) {
+      newPalette.colors[i].locked = !newPalette.colors[i].locked;
       hexAndLock[i].innerHTML = "";
       hexAndLock[i].innerHTML +=
-      `<p class="hex-code">${newPalette1.colors[i].hexCode}</p>
-      <img src="./src/padlock.png">`
+      `<p class="hex-code">${newPalette.colors[i].hexCode}</p>`;
+      toggleLock(i);
     }
   }
-};
+}
 
 function deletePalette(event) {
   for (let i = 0; i < savedPalettes.length; i++) {
