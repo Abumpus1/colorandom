@@ -28,21 +28,14 @@ function lockColor(event) {
   for (var i = 0; i < newPalette1.colors.length; i++) {
     if (event.target.closest(".color-box").id === newPalette1.colors[i].divId) {
       newPalette1.colors[i].locked = true
+
+      hexAndLock[i].innerHTML = "";
+      hexAndLock[i].innerHTML +=
+      `<p class="hex-code">${newPalette1.colors[i].hexCode}</p>
+      <img src="./src/padlock.png">`
     }
   }
-  console.log(event.target.closest(".color-box").id);
-  console.log(newPalette1.colors[0].hexCode);
-  console.log(newPalette1.colors[0]);
-  console.log(newPalette1.colors[0].id);
 };
-
-/*  step 1 - add to the color-box-div an ID, 0 1 2 3 4
-    step 2 - give each of the colors their own ID to match index position
-    step 3 - compare color-box div to color ID. if they match, lock
-
-*/
-
-
 
 
 // functions
@@ -102,7 +95,13 @@ function displayNewColors() {
     colorBoxColor[i].style.setProperty("background-color", `${newPalette1.colors[i].hexCode}`);
     hexAndLock[i].innerHTML = "";
     hexAndLock[i].innerHTML +=
-    `<p class="hex-code">${newPalette1.colors[i].hexCode}</p>
-    <img src="./src/unlock.png">`
+    `<p class="hex-code">${newPalette1.colors[i].hexCode}</p>`
+    if (!newPalette1.colors[i].locked) {
+      hexAndLock[i].innerHTML +=
+        `<img src="./src/unlock.png">`
+    } else {
+      hexAndLock[i].innerHTML +=
+        `<img src="./src/padlock.png">`
+    }
   }
-}
+};
