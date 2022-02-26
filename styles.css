@@ -1,60 +1,52 @@
-/* * {
-  border: solid black 2px;
-} */
-
 body {
-  font-family: "Andale Mono";
-  margin: 0px;
-  border: solid black 2px;
-  height: 900px;
   display: flex;
+  font-family: "Andale Mono";
+  height: 764px;
+  margin: 0px;
 }
 
 main {
-  width: 80%;
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  width: 80%;
 }
 
 h1 {
-  margin: 0px;
   font-size: 400%;
+  margin: 0px;
 }
 
-
 .color-box-container {
-  /* border: solid black 2px; */
-  height: inherit;
-  width: inherit;
   display: flex;
+  height: inherit;
   justify-content: center;
+  width: inherit;
 }
 
 .color-box {
+  align-items: center;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* border: solid black 2px; */
   height: 250px;
+  justify-content: center;
   width: 250px;
 }
 
 .color {
-  border: solid black 2px;
-  height: 80%;
-  width: 80%;
   background-color: red;
+  border: solid black 2px;
+  height: 140px;
+  width: 140px;
 }
 
 .hex-and-lock {
-  width: 80%;
-  /* border: solid black 2px; */
+  align-items: center;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  width: 80%;
 }
 
 .hex-and-lock > img {
@@ -63,51 +55,49 @@ h1 {
 }
 
 .palette-buttons-container {
-  /* border: solid black 2px; */
-  width: 82%;
   display: flex;
   justify-content: space-evenly;
+  width: 82%;
 }
 
 .palette-buttons {
-  height: 70px;
-  width: 200px;
-  font-family: "Andale Mono";
-  font-size: 150%;
   background-color: white;
   border-radius: 15px;
+  box-shadow: 2px 2px 2px;
+  cursor: pointer;
+  font-family: "Andale Mono";
+  font-size: 150%;
+  height: 70px;
+  width: 200px;
 }
 
 aside {
+  align-items: center;
+  border-left: solid black 4px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  border: solid black 2px;
   height: auto;
+  justify-content: flex-start;
   width: 20%;
 }
 
-.saved-palettes {
-  /* border: solid black 2px; */
-}
-
-.delete-button {
-  margin-left: 20px;
-  width: 23px;
-  height: 23px;
-}
-
 .palette-box {
-  margin: 10px;
+  align-items: center;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  margin: 10px;
 }
 
 .miniPalette {
+  background-color: red;
   border: solid black 2px;
   height: 30px;
   width: 30px;
-  background-color: red;
+}
+
+.delete-button {
+  cursor: pointer;
+  height: 23px;
+  margin-left: 20px;
+  width: 23px;
 }
