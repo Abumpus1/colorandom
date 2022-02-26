@@ -6,6 +6,8 @@ Colo-Random is an application used to create randomly generated color palettes. 
 
 ## How To Use Colo-Random
 
+Users can generate new colors by clicking the "New Pallete" button and lock a color they want to keep by clicking on the color. They can save palettes by clicking the "Save Palette" button, or click the trash icon to delete the saved palette if they change their mind.
+
 To run this application, please visit the [deploy link](https://mattruder.github.io/colorandom/)
 
 If you prefer to access the application locally:
@@ -15,6 +17,6 @@ If you prefer to access the application locally:
 
 ## Contributors
 
-[Alex Bumpus](https://github.com/Abumpus1)
-[Matt Ruder](https://github.com/mattruder)
-[Nikki Balmoori](https://github.com/nbalmoori)
+- [Alex Bumpus](https://github.com/Abumpus1)
+- [Matt Ruder](https://github.com/mattruder)
+- [Nikki Balmoori](https://github.com/nbalmoori)
