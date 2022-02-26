@@ -1,7 +1,7 @@
 body {
   display: flex;
   font-family: "Andale Mono";
-  height: 755px;
+  height: 764px;
   margin: 0px;
 }
 
@@ -37,8 +37,8 @@ h1 {
 .color {
   background-color: red;
   border: solid black 2px;
-  height: 80%;
-  width: 80%;
+  height: 140px;
+  width: 140px;
 }
 
 .hex-and-lock {
@@ -62,6 +62,7 @@ h1 {
 .palette-buttons {
   background-color: white;
   border-radius: 15px;
+  box-shadow: 2px 2px 2px;
   font-family: "Andale Mono";
   font-size: 150%;
   height: 70px;
