@@ -27,6 +27,7 @@ h1 {
 
 .color-box {
   align-items: center;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   height: 250px;
@@ -63,6 +64,7 @@ h1 {
   background-color: white;
   border-radius: 15px;
   box-shadow: 2px 2px 2px;
+  cursor: pointer;
   font-family: "Andale Mono";
   font-size: 150%;
   height: 70px;
@@ -94,6 +96,7 @@ aside {
 }
 
 .delete-button {
+  cursor: pointer;
   height: 23px;
   margin-left: 20px;
   width: 23px;
