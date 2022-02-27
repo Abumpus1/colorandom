@@ -7,7 +7,6 @@ var savePaletteButton = document.querySelector("#save-palette");
 var savedPalettesContainer = document.querySelector(".saved-palettes");
 var colorBoxContainer = document.querySelector(".color-box-container");
 
-var hexCharacters = ["A","B","C","D","E","F","0","1","2","3","4","5","6","7","8","9"];
 var savedPalettes = [];
 var newPalette = new Palette;
 
@@ -44,6 +43,7 @@ function getRandomIndex(array) {
 }
 
 function createHexCode() {
+  var hexCharacters = ["A","B","C","D","E","F","0","1","2","3","4","5","6","7","8","9"];
   var hexCode = "#";
   for (let i = 0; i < 6; i++) {
     hexCode += hexCharacters[getRandomIndex(hexCharacters)];
