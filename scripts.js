@@ -105,7 +105,7 @@ function displayNewColors() {
 
 function lockColor(event) {
   for (let i = 0; i < newPalette.colors.length; i++) {
-    if (event.target.closest(".color-box").id === newPalette.colors[i].divId) {
+    if (event.target.getAttribute('id') === newPalette.colors[i].divId) {
       newPalette.colors[i].locked = !newPalette.colors[i].locked;
       hexAndLock[i].innerHTML = "";
       hexAndLock[i].innerHTML +=
